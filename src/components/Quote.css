@@ -1,0 +1,47 @@
+.quote-section {
+  background-color: var(--color-bg);
+  padding: 6rem 0;
+}
+
+.quote-box {
+  background: linear-gradient(135deg, var(--color-primary), #050d1a);
+  padding: 5rem;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.quote-title {
+  color: #FFFFFF;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.quote-text {
+  font-size: 1.15rem;
+  color: #CCCCCC;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  font-weight: 300;
+}
+
+.quote-btn {
+  background-color: #FFFFFF;
+  color: var(--color-primary);
+  border: 1px solid #FFFFFF;
+}
+
+.quote-btn:hover {
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+}
+
+@media (max-width: 768px) {
+  .quote-box {
+    padding: 3rem 2rem;
+  }
+  
+  .quote-title {
+    font-size: 2rem;
+  }
+}
