@@ -54,10 +54,17 @@
 }
 
 .feature-icon-wrapper {
-  color: var(--color-primary);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-secondary);
+  color: var(--color-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
 }
 
 .feature-title {
@@ -110,10 +117,17 @@
 }
 
 .segment-icon {
-  color: var(--color-primary);
-  margin-bottom: 1.5rem;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-secondary);
+  color: var(--color-secondary);
+  margin: 0 auto 1.5rem auto;
   display: flex;
+  align-items: center;
   justify-content: center;
+  box-shadow: var(--shadow-sm);
 }
 
 .segment-name {

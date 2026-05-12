@@ -1,6 +1,7 @@
 import React from 'react';
 import './About.css';
-import { PiForkKnifeThin, PiBuildingsThin, PiBriefcaseThin, PiTrendUpThin, PiUsersThin, PiTargetThin } from 'react-icons/pi';
+import { PiForkKnifeThin, PiBuildingsThin, PiBriefcaseThin, PiTrendUpThin, PiUsersThin, PiTargetThin, PiPaperPlaneRightThin } from 'react-icons/pi';
+import gourmetFoodBowls from '../assets/gourmet_food_bowls.png';
 
 const About = () => {
   const segments = [
@@ -12,7 +13,7 @@ const About = () => {
   const features = [
     { 
       icon: <PiTrendUpThin size={28} className="feature-icon" />, 
-      title: "Performance Operacional",
+      title: "Desempenho Operacional",
       text: "Redução de desperdícios e aumento de produtividade."
     },
     { 
@@ -22,7 +23,7 @@ const About = () => {
     },
     { 
       icon: <PiTargetThin size={28} className="feature-icon" />, 
-      title: "Foco em Resultados",
+      title: "Foco",
       text: "Análise técnica com visão estratégica para resultados reais."
     }
   ];
@@ -32,13 +33,13 @@ const About = () => {
       <div className="container">
         <div className="about-grid">
           <div className="about-text-content">
-            <h2 className="section-title">Sobre a Empresa</h2>
+            <h2 className="section-title">A Empresa</h2>
             <div className="title-underline"></div>
             <p className="about-description highlight-text">
-              Mais do que uma consultoria, atuamos como parceira estratégica no desenvolvimento de ambientes mais fortes, organizados, produtivos e sustentáveis.
+              Mais do que uma consultoria, atuo como parceira estratégica no desenvolvimento de ambientes mais fortes, organizados, produtivos e sustentáveis.
             </p>
             <p className="about-description">
-              A <strong>CR Strategic Consulting</strong> é especializada no desenvolvimento de operações mais eficientes, sustentáveis e humanizadas. Nosso trabalho é baseado na integração entre estratégia, gestão e valorização humana, permitindo que empresas cresçam de forma estruturada.
+              A <strong>CR Strategic Consulting</strong> é especializada no desenvolvimento de operações mais eficientes, sustentáveis e humanizadas. O trabalho é baseado na integração entre estratégia, gestão e valorização humana, permitindo que empresas cresçam de forma estruturada.
             </p>
             
             <div className="features-list">
@@ -54,6 +55,12 @@ const About = () => {
                 </div>
               ))}
             </div>
+
+            <div className="about-actions" style={{ marginTop: '3rem' }}>
+              <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                Fazer Orçamento <PiPaperPlaneRightThin size={24} style={{ marginLeft: '12px' }} />
+              </a>
+            </div>
           </div>
 
           <div className="segments-content">
@@ -67,6 +74,9 @@ const About = () => {
                   <h4 className="segment-name">{segment.title}</h4>
                 </div>
               ))}
+            </div>
+            <div className="about-image-wrapper" style={{ marginTop: '3rem', borderRadius: '0px', overflow: 'hidden', border: '1px solid var(--color-accent)' }}>
+              <img src={gourmetFoodBowls} alt="Gourmet Food Bowls" style={{ width: '100%', height: 'auto', display: 'block' }} />
             </div>
           </div>
         </div>

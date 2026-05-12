@@ -14,8 +14,9 @@ function App() {
       <main>
         <Hero />
         <About />
+        <Quote id="orcamento" />
         <Values />
-        <Quote />
+        <Quote id="orcamento-final" />
       </main>
       <Footer />
       <WhatsAppBtn />

@@ -23,7 +23,7 @@ const Footer = () => {
           <ul>
             <li><a href="#inicio">Início</a></li>
             <li><a href="#sobre">A Empresa</a></li>
-            <li><a href="#valores">Pilares e Valores</a></li>
+            <li><a href="#valores">Valores</a></li>
           </ul>
         </div>
 
