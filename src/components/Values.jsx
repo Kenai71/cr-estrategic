@@ -105,12 +105,6 @@ const Values = () => {
           ))}
         </div>
 
-        <div className="values-actions text-center" style={{ marginTop: '4rem' }}>
-          <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-            Fazer Orçamento <PiPaperPlaneRightThin size={24} style={{ marginLeft: '12px' }} />
-          </a>
-        </div>
-
       </div>
     </section>
   );

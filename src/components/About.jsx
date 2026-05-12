@@ -56,11 +56,6 @@ const About = () => {
               ))}
             </div>
 
-            <div className="about-actions" style={{ marginTop: '3rem' }}>
-              <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                Fazer Orçamento <PiPaperPlaneRightThin size={24} style={{ marginLeft: '12px' }} />
-              </a>
-            </div>
           </div>
 
           <div className="segments-content">
