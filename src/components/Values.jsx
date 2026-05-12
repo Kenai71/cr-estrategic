@@ -1,6 +1,6 @@
 import React from 'react';
 import './Values.css';
-import { PiHeartThin, PiStarThin, PiLeafThin, PiShieldCheckThin, PiLightbulbThin, PiChartBarThin, PiSmileyThin, PiCheckCircleThin, PiPaperPlaneRightThin } from 'react-icons/pi';
+import { PiHeartThin, PiStarThin, PiLeafThin, PiShieldCheckThin, PiLightbulbThin, PiChartBarThin, PiSmileyThin, PiCheckCircleThin } from 'react-icons/pi';
 import businessHandshake from '../assets/business_handshake.png';
 import strategicVision from '../assets/strategic_vision.png';
 import chefPlatingGourmet from '../assets/chef_plating_gourmet.png';

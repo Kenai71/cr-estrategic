@@ -1,6 +1,6 @@
 import React from 'react';
 import './About.css';
-import { PiForkKnifeThin, PiBuildingsThin, PiBriefcaseThin, PiTrendUpThin, PiUsersThin, PiTargetThin, PiPaperPlaneRightThin } from 'react-icons/pi';
+import { PiForkKnifeThin, PiBuildingsThin, PiBriefcaseThin, PiTrendUpThin, PiUsersThin, PiTargetThin } from 'react-icons/pi';
 import gourmetFoodBowls from '../assets/gourmet_food_bowls.png';
 
 const About = () => {
