@@ -3,7 +3,7 @@ import { Menu, X } from 'lucide-react';
 import './Header.css';
 import logo from '../assets/logo.png';
 
-const Header = () => {
+const Header = ({ onContactClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -17,6 +17,12 @@ const Header = () => {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  const handleContactClick = (e) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+    if (onContactClick) onContactClick();
+  };
+
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container header-container">
@@ -28,7 +34,7 @@ const Header = () => {
           <a href="#inicio" className="nav-link" onClick={() => setIsMenuOpen(false)}>Início</a>
           <a href="#sobre" className="nav-link" onClick={() => setIsMenuOpen(false)}>A Empresa</a>
           <a href="#valores" className="nav-link" onClick={() => setIsMenuOpen(false)}>Valores</a>
-          <a href="#contato" className="btn btn-primary nav-btn" onClick={() => setIsMenuOpen(false)}>Fale Conosco</a>
+          <button className="btn btn-primary nav-btn" onClick={handleContactClick}>Fale Conosco</button>
         </nav>
 
         <button className="mobile-menu-btn" onClick={toggleMenu} aria-label="Menu">

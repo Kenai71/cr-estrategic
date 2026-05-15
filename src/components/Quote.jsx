@@ -2,7 +2,12 @@ import React from 'react';
 import './Quote.css';
 import { PiPaperPlaneRightThin } from 'react-icons/pi';
 
-const Quote = ({ id = "orcamento" }) => {
+const Quote = ({ id = "orcamento", onContactClick }) => {
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (onContactClick) onContactClick();
+  };
+
   return (
     <section id={id} className="section quote-section">
       <div className="container">
@@ -11,9 +16,9 @@ const Quote = ({ id = "orcamento" }) => {
           <p className="quote-text">
             Entre em contato e faça um orçamento. Desenvolverei um plano estratégico focado nas necessidades reais do seu negócio.
           </p>
-          <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer" className="btn btn-primary quote-btn">
+          <button className="btn btn-primary quote-btn" onClick={handleClick}>
             Fazer Orçamento <PiPaperPlaneRightThin size={24} style={{ marginLeft: '12px' }} />
-          </a>
+          </button>
         </div>
       </div>
     </section>
