@@ -1,0 +1,280 @@
+/* ======================== */
+/* Segments Section         */
+/* ======================== */
+.segments-section {
+  background-color: var(--color-bg);
+  padding: 6rem 0;
+}
+
+.segments-header {
+  margin-bottom: 4rem;
+}
+
+.segments-row {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+/* Segment Button Card */
+.segment-btn {
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-accent);
+  padding: 3rem 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  width: 280px;
+  position: relative;
+  overflow: hidden;
+}
+
+.segment-btn::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-secondary);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.4s ease;
+}
+
+.segment-btn:hover::before {
+  transform: scaleX(1);
+}
+
+.segment-btn:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-secondary);
+}
+
+.segment-btn:hover .segment-btn-icon {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 20px rgba(197, 160, 89, 0.15);
+}
+
+.segment-btn:hover .segment-btn-cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Segment Icon */
+.segment-btn-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-secondary);
+  color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.4s ease;
+}
+
+.segment-btn-title {
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.segment-btn-cta {
+  font-size: 0.85rem;
+  color: var(--color-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: all 0.3s ease;
+}
+
+/* ======================== */
+/* Modal                    */
+/* ======================== */
+.segment-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 25, 47, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 2rem;
+  animation: modalOverlayIn 0.3s ease forwards;
+}
+
+@keyframes modalOverlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.segment-modal {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-accent);
+  max-width: 560px;
+  width: 100%;
+  padding: 3.5rem 3rem;
+  position: relative;
+  text-align: center;
+  animation: modalSlideIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Close Button */
+.segment-modal-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: none;
+  color: var(--color-text-muted);
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.segment-modal-close:hover {
+  color: var(--color-primary);
+  transform: rotate(90deg);
+}
+
+/* Modal Icon */
+.segment-modal-icon {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-secondary);
+  color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Modal Title */
+.segment-modal-title {
+  font-size: 1.75rem;
+  color: var(--color-primary);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+/* Modal Description */
+.segment-modal-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+}
+
+/* WhatsApp CTA Button */
+.segment-modal-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  background-color: #25D366;
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
+}
+
+.segment-modal-whatsapp:hover {
+  background-color: #1ebe5d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.35);
+}
+
+.segment-modal-whatsapp:active {
+  transform: translateY(0);
+}
+
+/* ======================== */
+/* Responsive               */
+/* ======================== */
+@media (max-width: 992px) {
+  .segments-row {
+    gap: 2rem;
+  }
+
+  .segment-btn {
+    width: 240px;
+    padding: 2.5rem 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .segments-section {
+    padding: 5rem 0;
+  }
+
+  .segments-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .segment-btn {
+    width: 100%;
+    max-width: 320px;
+    flex-direction: row;
+    padding: 1.5rem 2rem;
+    gap: 1.5rem;
+  }
+
+  .segment-btn-icon {
+    width: 70px;
+    height: 70px;
+    flex-shrink: 0;
+  }
+
+  .segment-btn-cta {
+    display: none;
+  }
+
+  .segment-modal {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .segment-modal-title {
+    font-size: 1.5rem;
+  }
+}
