@@ -10,19 +10,34 @@ const Segments = () => {
     {
       icon: <PiForkKnifeThin size={48} />,
       title: "Food Service",
-      description: "Consultoria estratégica para restaurantes, redes de alimentação, cozinhas industriais, catering e operações de food service. Atuo na otimização de processos operacionais, redução de desperdícios, padronização de receitas, gestão de custos, treinamento de equipes e implementação de boas práticas para elevar a qualidade e a rentabilidade do seu negócio.",
+      items: [
+        "Experiência em operações complexas no território brasileiro",
+        "Atuação estratégica com foco em eficiência e qualidade",
+        "Desenvolvimento de equipes para resultados sustentáveis",
+        "Operações mais organizadas, seguras e eficientes"
+      ],
       whatsappMessage: "Olá! Gostaria de saber mais sobre a consultoria para Food Service. Podemos conversar?"
     },
     {
       icon: <PiBuildingsThin size={48} />,
       title: "Hospitalidade",
-      description: "Soluções completas para hotéis, pousadas, resorts e empreendimentos de hospitalidade. Trabalho com foco na excelência do atendimento, gestão operacional integrada, desenvolvimento de equipes, padronização de processos e criação de experiências memoráveis para seus hóspedes, fortalecendo a reputação e os resultados do seu negócio.",
+      items: [
+        "Integração entre hospitalidade, operação e assistência",
+        "Fortalecimento da percepção institucional do serviço",
+        "Desenvolvimento humano alinhado à performance",
+        "Cultura operacional mais engajada e sustentável"
+      ],
       whatsappMessage: "Olá! Gostaria de saber mais sobre a consultoria para Hospitalidade. Podemos conversar?"
     },
     {
       icon: <PiBriefcaseThin size={48} />,
       title: "Corporativo",
-      description: "Consultoria para empresas que buscam aprimorar sua gestão, fortalecer equipes e alcançar resultados consistentes. Atuo em planejamento estratégico, desenvolvimento de lideranças, cultura organizacional, eficiência operacional e processos de melhoria contínua, ajudando sua empresa a crescer de forma estruturada e sustentável.",
+      items: [
+        "Estratégias orientadas a resultados mensuráveis",
+        "Desenvolvimento de cultura operacional sustentável",
+        "Fortalecimento de liderança e engajamento",
+        "Estruturação de operações mais eficientes e organizadas"
+      ],
       whatsappMessage: "Olá! Gostaria de saber mais sobre a consultoria Corporativa. Podemos conversar?"
     }
   ];
@@ -56,7 +71,7 @@ const Segments = () => {
       <section id="segmentos" className="section segments-section">
         <div className="container">
           <div className="text-center segments-header">
-            <h2 className="section-title">Segmentos de Atuação</h2>
+            <h2 className="section-title">Quem impulsiono</h2>
             <div className="title-underline mx-auto"></div>
           </div>
 
@@ -93,9 +108,14 @@ const Segments = () => {
 
             <h3 className="segment-modal-title">{segments[activeSegment].title}</h3>
 
-            <p className="segment-modal-text">
-              {segments[activeSegment].description}
-            </p>
+            <ul className="segment-modal-list">
+              {segments[activeSegment].items.map((item, idx) => (
+                <li key={idx} className="segment-modal-list-item">
+                  <span className="segment-modal-bullet"></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
 
             <button
               className="segment-modal-whatsapp"

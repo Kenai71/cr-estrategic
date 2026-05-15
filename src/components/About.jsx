@@ -1,53 +1,44 @@
 import React from 'react';
 import './About.css';
-import { PiTrendUpThin, PiUsersThin, PiTargetThin } from 'react-icons/pi';
+import camilaPhoto from '../assets/foto-inicial.png';
 
 const About = () => {
-  const features = [
-    { 
-      icon: <PiTrendUpThin size={28} className="feature-icon" />, 
-      title: "Desempenho Operacional",
-      text: "Redução de desperdícios e aumento de produtividade."
-    },
-    { 
-      icon: <PiUsersThin size={28} className="feature-icon" />, 
-      title: "Desenvolvimento Humano",
-      text: "Fortalecimento da cultura organizacional e de equipes."
-    },
-    { 
-      icon: <PiTargetThin size={28} className="feature-icon" />, 
-      title: "Foco",
-      text: "Análise técnica com visão estratégica para resultados reais."
-    }
-  ];
-
   return (
     <section id="sobre" className="section about-section">
       <div className="container">
-        <div className="about-content">
-          <h2 className="section-title">A Empresa</h2>
-          <div className="title-underline"></div>
-          <p className="about-description highlight-text">
-            Mais do que uma consultoria, atuo como parceira estratégica no desenvolvimento de ambientes mais fortes, organizados, produtivos e sustentáveis.
-          </p>
-          <p className="about-description">
-            A <strong>CR Strategic Consulting</strong> é especializada no desenvolvimento de operações mais eficientes, sustentáveis e humanizadas. O trabalho é baseado na integração entre estratégia, gestão e valorização humana, permitindo que empresas cresçam de forma estruturada.
-          </p>
-          
-          <div className="features-list">
-            {features.map((feature, index) => (
-              <div key={index} className="feature-item">
-                <div className="feature-icon-wrapper">
-                  {feature.icon}
-                </div>
-                <div>
-                  <h4 className="feature-title">{feature.title}</h4>
-                  <p className="feature-text">{feature.text}</p>
-                </div>
-              </div>
-            ))}
+        <div className="about-layout">
+          <div className="about-photo-side">
+            <div className="about-photo-wrapper">
+              <img src={camilaPhoto} alt="Camila Rocha de Oliveira" className="about-photo" />
+              <div className="about-photo-accent"></div>
+            </div>
+            <p className="about-author-name">Camila Rocha de Oliveira</p>
           </div>
 
+          <div className="about-content">
+            <h2 className="section-title">A Empresa</h2>
+            <div className="title-underline"></div>
+
+            <p className="about-description highlight-text">
+              A CR Strategic Consulting nasce do meu propósito de transformar operações de alimentação hospitalar e corporativa de forma humanizada, sustentável e conectada à experiência das pessoas.
+            </p>
+
+            <p className="about-description">
+              Ao longo da minha trajetória, desenvolvi uma atuação focada em excelência operacional, segurança alimentar, melhoria contínua e desenvolvimento de equipes de alta performance.
+            </p>
+
+            <p className="about-description">
+              Com mais de 20 anos de experiência no setor, atuo apoiando instituições na construção de operações mais eficientes, acolhedoras e sustentáveis, sempre com foco em resultados consistentes e valorização humana.
+            </p>
+
+            <p className="about-description">
+              Mais do que processos, entrego cultura, pertencimento, desenvolvimento e experiências que fortalecem pessoas e organizações.
+            </p>
+
+            <p className="about-description about-purpose">
+              Porque resultados sustentáveis acontecem quando existe propósito em cada entrega.
+            </p>
+          </div>
         </div>
       </div>
     </section>
