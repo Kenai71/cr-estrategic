@@ -102,6 +102,14 @@
 /* ======================== */
 /* Modal                    */
 /* ======================== */
+.segments-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin: 1.5rem auto 0;
+  line-height: 1.6;
+}
+
 .segment-modal-overlay {
   position: fixed;
   top: 0;
@@ -124,14 +132,18 @@
   to { opacity: 1; }
 }
 
-.segment-modal {
+/* Split Modal */
+.segment-modal.split-modal {
+  max-width: 1000px;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
   background-color: var(--color-bg);
   border: 1px solid var(--color-accent);
-  max-width: 560px;
-  width: 100%;
-  padding: 3.5rem 3rem;
   position: relative;
-  text-align: center;
+  text-align: left;
   animation: modalSlideIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
 }
@@ -147,6 +159,26 @@
   }
 }
 
+.segment-modal-image-col {
+  flex: 0 0 40%;
+  position: relative;
+  overflow: hidden;
+}
+
+.segment-modal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.segment-modal-content-col {
+  flex: 1;
+  padding: 3.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
 /* Close Button */
 .segment-modal-close {
   position: absolute;
@@ -159,6 +191,7 @@
   align-items: center;
   justify-content: center;
   transition: color 0.3s ease, transform 0.3s ease;
+  z-index: 10;
 }
 
 .segment-modal-close:hover {
@@ -166,28 +199,41 @@
   transform: rotate(90deg);
 }
 
-/* Modal Icon */
-.segment-modal-icon {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background-color: var(--color-primary);
-  border: 2px solid var(--color-secondary);
-  color: var(--color-secondary);
+.segment-modal-header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 0 auto 2rem;
-  box-shadow: var(--shadow-sm);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-/* Modal Title */
+.segment-modal-icon-small {
+  color: var(--color-secondary);
+  display: flex;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  padding: 10px;
+  border: 1px solid var(--color-secondary);
+}
+
+.segment-modal-icon-small svg {
+  width: 32px;
+  height: 32px;
+}
+
 .segment-modal-title {
   font-size: 1.75rem;
   color: var(--color-primary);
   font-weight: 400;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
   letter-spacing: -0.01em;
+}
+
+.segment-modal-description {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+  font-weight: 300;
 }
 
 /* Modal List */
@@ -239,6 +285,7 @@
   border: none;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
+  align-self: flex-start;
 }
 
 .segment-modal-whatsapp:hover {
@@ -262,6 +309,20 @@
   .segment-btn {
     width: 240px;
     padding: 2.5rem 2rem 1.5rem;
+  }
+  
+  .segment-modal.split-modal {
+    flex-direction: column;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .segment-modal-image-col {
+    flex: 0 0 300px;
+  }
+  
+  .segment-modal-content-col {
+    padding: 2rem;
   }
 }
 
@@ -294,11 +355,23 @@
     display: none;
   }
 
-  .segment-modal {
-    padding: 2.5rem 1.5rem;
+  .segment-modal.split-modal {
+    padding: 0;
+  }
+  
+  .segment-modal-image-col {
+    flex: 0 0 250px;
+  }
+  
+  .segment-modal-content-col {
+    padding: 1.5rem;
   }
 
   .segment-modal-title {
     font-size: 1.5rem;
+  }
+  
+  .segment-modal-whatsapp {
+    align-self: stretch;
   }
 }

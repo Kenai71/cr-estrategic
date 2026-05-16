@@ -3,6 +3,10 @@ import './Segments.css';
 import { PiForkKnifeThin, PiBuildingsThin, PiBriefcaseThin, PiXThin } from 'react-icons/pi';
 import { FaWhatsapp } from 'react-icons/fa';
 
+import foodServiceImg from '../assets/food-service.jpeg';
+import hospitalidadeImg from '../assets/hospitalidade.jpeg';
+import corporativoImg from '../assets/corporativo.jpeg';
+
 const Segments = () => {
   const [activeSegment, setActiveSegment] = useState(null);
 
@@ -10,33 +14,42 @@ const Segments = () => {
     {
       icon: <PiForkKnifeThin size={48} />,
       title: "Food Service",
+      description: "Transformo operações de food service em estruturas mais eficientes, seguras e sustentáveis, com foco em qualidade, experiência e resultado. A consultoria atua de forma estratégica na redução de desperdícios, fortalecimento de processos, desenvolvimento de equipes e melhoria da performance operacional em ambientes hospitalares e corporativos.",
+      image: foodServiceImg,
       items: [
-        "Experiência em operações complexas no território brasileiro",
-        "Atuação estratégica com foco em eficiência e qualidade",
-        "Desenvolvimento de equipes para resultados sustentáveis",
-        "Operações mais organizadas, seguras e eficientes"
+        "Redução de desperdícios e otimização de custos",
+        "Maior eficiência operacional e produtividade",
+        "Fortalecimento da segurança alimentar e qualidade",
+        "Padronização de processos e indicadores",
+        "Desenvolvimento de equipes mais engajadas e preparadas"
       ],
       whatsappMessage: "Olá! Gostaria de saber mais sobre a consultoria para Food Service. Podemos conversar?"
     },
     {
       icon: <PiBuildingsThin size={48} />,
       title: "Hospitalidade",
+      description: "Promovo experiências mais humanas, acolhedoras e organizadas por meio da hospitalidade estratégica. A atuação integra cuidado, eficiência operacional e experiência do cliente, fortalecendo a percepção de valor, pertencimento e excelência nos serviços.",
+      image: hospitalidadeImg,
       items: [
-        "Integração entre hospitalidade, operação e assistência",
-        "Fortalecimento da percepção institucional do serviço",
-        "Desenvolvimento humano alinhado à performance",
-        "Cultura operacional mais engajada e sustentável"
+        "Melhoria da experiência de pacientes, clientes e colaboradores",
+        "Operações mais organizadas, acolhedoras e eficientes",
+        "Fortalecimento da percepção de valor do serviço",
+        "Integração entre cuidado, qualidade e atendimento humanizado",
+        "Aumento da satisfação e da experiência do cliente"
       ],
       whatsappMessage: "Olá! Gostaria de saber mais sobre a consultoria para Hospitalidade. Podemos conversar?"
     },
     {
       icon: <PiBriefcaseThin size={48} />,
       title: "Corporativo",
+      description: "Atuo no desenvolvimento de operações corporativas mais eficientes, organizadas e sustentáveis, alinhando estratégia, processos e pessoas para gerar produtividade, qualidade e resultados consistentes.",
+      image: corporativoImg,
       items: [
-        "Estratégias orientadas a resultados mensuráveis",
-        "Desenvolvimento de cultura operacional sustentável",
-        "Fortalecimento de liderança e engajamento",
-        "Estruturação de operações mais eficientes e organizadas"
+        "Estruturação estratégica de processos operacionais",
+        "Maior performance e eficiência das equipes",
+        "Redução de falhas e melhoria contínua",
+        "Desenvolvimento de cultura orientada a resultados",
+        "Operações mais sustentáveis, seguras e organizadas"
       ],
       whatsappMessage: "Olá! Gostaria de saber mais sobre a consultoria Corporativa. Podemos conversar?"
     }
@@ -73,6 +86,9 @@ const Segments = () => {
           <div className="text-center segments-header">
             <h2 className="section-title">Quem impulsiono</h2>
             <div className="title-underline mx-auto"></div>
+            <p className="segments-subtitle">
+              Para todos os tipos de projetos, a Tanjerin assegura módulos de assessoria para implatação
+            </p>
           </div>
 
           <div className="segments-row">
@@ -97,33 +113,42 @@ const Segments = () => {
       {/* Modal Overlay */}
       {activeSegment !== null && (
         <div className="segment-modal-overlay" onClick={closeModal}>
-          <div className="segment-modal" onClick={(e) => e.stopPropagation()}>
+          <div className="segment-modal split-modal" onClick={(e) => e.stopPropagation()}>
             <button className="segment-modal-close" onClick={closeModal} aria-label="Fechar">
               <PiXThin size={28} />
             </button>
 
-            <div className="segment-modal-icon">
-              {segments[activeSegment].icon}
+            <div className="segment-modal-image-col">
+              <img src={segments[activeSegment].image} alt={segments[activeSegment].title} className="segment-modal-img" />
             </div>
 
-            <h3 className="segment-modal-title">{segments[activeSegment].title}</h3>
+            <div className="segment-modal-content-col">
+              <div className="segment-modal-header">
+                <div className="segment-modal-icon-small">
+                  {segments[activeSegment].icon}
+                </div>
+                <h3 className="segment-modal-title">{segments[activeSegment].title}</h3>
+              </div>
+              
+              <p className="segment-modal-description">{segments[activeSegment].description}</p>
 
-            <ul className="segment-modal-list">
-              {segments[activeSegment].items.map((item, idx) => (
-                <li key={idx} className="segment-modal-list-item">
-                  <span className="segment-modal-bullet"></span>
-                  {item}
-                </li>
-              ))}
-            </ul>
+              <ul className="segment-modal-list">
+                {segments[activeSegment].items.map((item, idx) => (
+                  <li key={idx} className="segment-modal-list-item">
+                    <span className="segment-modal-bullet"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
 
-            <button
-              className="segment-modal-whatsapp"
-              onClick={() => handleWhatsApp(segments[activeSegment].whatsappMessage)}
-            >
-              <FaWhatsapp size={22} />
-              <span>Falar no WhatsApp</span>
-            </button>
+              <button
+                className="segment-modal-whatsapp"
+                onClick={() => handleWhatsApp(segments[activeSegment].whatsappMessage)}
+              >
+                <FaWhatsapp size={22} />
+                <span>Falar no WhatsApp</span>
+              </button>
+            </div>
           </div>
         </div>
       )}

@@ -13,10 +13,6 @@ const Hero = () => {
 
       <div className="container hero-container">
         <div className="hero-content animate-fade-in">
-          <div className="hero-logo-mark">
-            <span className="hero-logo-c">C</span>
-            <span className="hero-logo-r">R</span>
-          </div>
           <span className="hero-badge">CR Strategic Consulting</span>
           <h1 className="hero-title">
             Estratégia que<br />transforma.
