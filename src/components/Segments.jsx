@@ -86,9 +86,6 @@ const Segments = () => {
           <div className="text-center segments-header">
             <h2 className="section-title">Quem impulsiono</h2>
             <div className="title-underline mx-auto"></div>
-            <p className="segments-subtitle">
-              Para todos os tipos de projetos, a Tanjerin assegura módulos de assessoria para implatação
-            </p>
           </div>
 
           <div className="segments-row">
@@ -106,6 +103,12 @@ const Segments = () => {
                 <span className="segment-btn-cta">Saiba mais</span>
               </button>
             ))}
+          </div>
+
+          <div className="text-center" style={{ marginTop: '3rem' }}>
+            <p className="segments-subtitle" style={{ margin: '0 auto' }}>
+              Pra todos os tipos de projetos, a CR Strategic Consulting assegura assessoria para implantação.
+            </p>
           </div>
         </div>
       </section>
@@ -131,6 +134,8 @@ const Segments = () => {
               </div>
               
               <p className="segment-modal-description">{segments[activeSegment].description}</p>
+
+              <h4 className="segment-modal-subtitle">Diferencial</h4>
 
               <ul className="segment-modal-list">
                 {segments[activeSegment].items.map((item, idx) => (

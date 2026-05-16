@@ -236,6 +236,14 @@
   font-weight: 300;
 }
 
+.segment-modal-subtitle {
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
 /* Modal List */
 .segment-modal-list {
   list-style: none;
