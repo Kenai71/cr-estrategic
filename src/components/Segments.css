@@ -172,6 +172,11 @@
   display: block;
 }
 
+.segment-modal-img.hospitalidade-img {
+  object-fit: contain;
+  background-color: var(--color-bg); /* Use background color to blend empty spaces */
+}
+
 .segment-modal-content-col {
   flex: 1;
   padding: 3.5rem 3rem;
