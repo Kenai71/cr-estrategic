@@ -67,7 +67,7 @@ const Segments = () => {
 
   const handleWhatsApp = (message) => {
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/5500000000000?text=${encodedMessage}`, '_blank');
+    window.open(`https://wa.me/5511994858033?text=${encodedMessage}`, '_blank');
   };
 
   // Close modal on Escape key
@@ -86,9 +86,7 @@ const Segments = () => {
           <div className="text-center segments-header">
             <h2 className="section-title">Quem impulsiono</h2>
             <div className="title-underline mx-auto"></div>
-            <p className="segments-subtitle">
-              Para todos os tipos de projetos, a CR Strategic Consulting assegura assessoria para implantação.
-            </p>
+
           </div>
 
           <div className="segments-row">
@@ -106,6 +104,12 @@ const Segments = () => {
                 <span className="segment-btn-cta">Saiba mais</span>
               </button>
             ))}
+          </div>
+
+          <div className="text-center" style={{ marginTop: '4rem' }}>
+            <p className="segments-subtitle">
+              Para todos os tipos de projetos, a CR Strategic Consulting assegura assessoria para implantação.
+            </p>
           </div>
         </div>
       </section>

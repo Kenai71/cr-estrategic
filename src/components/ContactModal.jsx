@@ -70,7 +70,7 @@ const ContactModal = ({ isOpen, onClose }) => {
 
     // Open WhatsApp after a brief moment
     setTimeout(() => {
-      window.open(`https://wa.me/5500000000000?text=${encodedMessage}`, '_blank');
+      window.open(`https://wa.me/5511994858033?text=${encodedMessage}`, '_blank');
     }, 1200);
 
     // Reset after closing

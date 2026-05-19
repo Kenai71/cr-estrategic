@@ -329,6 +329,11 @@
     flex: 0 0 300px;
   }
   
+  .segment-modal-img {
+    object-fit: contain;
+    background-color: var(--color-bg);
+  }
+  
   .segment-modal-content-col {
     padding: 2rem;
   }
