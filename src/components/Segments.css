@@ -326,11 +326,14 @@
   }
   
   .segment-modal-image-col {
-    flex: 0 0 300px;
+    flex: 0 0 auto;
+    width: 100%;
   }
   
   .segment-modal-img {
-    object-fit: contain;
+    height: auto;
+    max-height: 40vh;
+    object-fit: cover;
     background-color: var(--color-bg);
   }
   
@@ -373,7 +376,7 @@
   }
   
   .segment-modal-image-col {
-    flex: 0 0 250px;
+    flex: 0 0 auto;
   }
   
   .segment-modal-content-col {
