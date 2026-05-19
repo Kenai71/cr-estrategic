@@ -34,7 +34,7 @@ const Header = ({ onContactClick }) => {
           <a href="#inicio" className="nav-link" onClick={() => setIsMenuOpen(false)}>Início</a>
           <a href="#sobre" className="nav-link" onClick={() => setIsMenuOpen(false)}>A Empresa</a>
           <a href="#valores" className="nav-link" onClick={() => setIsMenuOpen(false)}>Valores</a>
-          <button className="btn btn-primary nav-btn" onClick={handleContactClick}>Fale Conosco</button>
+          <button className="btn btn-primary nav-btn" onClick={handleContactClick}>Contato</button>
         </nav>
 
         <button className="mobile-menu-btn" onClick={toggleMenu} aria-label="Menu">

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import logo from '../assets/logo.png';
+
 import { FaInstagram } from 'react-icons/fa';
 import { PiEnvelopeThin, PiPhoneThin, PiMapPinThin } from 'react-icons/pi';
 
@@ -9,7 +9,7 @@ const Footer = () => {
     <footer id="contato" className="footer">
       <div className="container footer-container">
         <div className="footer-brand">
-          <img src={logo} alt="CR Strategic Consulting" className="footer-logo" />
+
           <p className="footer-slogan">
             Estratégia que transforma. Resultado que permanece.
           </p>
@@ -32,11 +32,11 @@ const Footer = () => {
           <ul className="contact-list">
             <li>
               <PiPhoneThin size={22} className="contact-icon" />
-              <span>(00) 00000-0000</span>
+              <span>+55 11 99485-8033</span>
             </li>
             <li>
               <PiEnvelopeThin size={22} className="contact-icon" />
-              <span>contato@crstrategic.com.br</span>
+              <span>camilarocr11@outlook.com</span>
             </li>
             <li>
               <PiMapPinThin size={22} className="contact-icon" />
