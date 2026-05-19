@@ -5,7 +5,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 
 import foodServiceImg from '../assets/food-service.jpeg';
 import hospitalidadeImg from '../assets/hospitalidade.jpeg';
-import corporativoImg from '../assets/corporativo.png';
+import corporativoImg from '../assets/corporativo.jpeg';
 
 const Segments = () => {
   const [activeSegment, setActiveSegment] = useState(null);
