@@ -122,7 +122,7 @@ const Segments = () => {
               <img 
                 src={segments[activeSegment].image} 
                 alt={segments[activeSegment].title} 
-                className={`segment-modal-img ${segments[activeSegment].title === 'Hospitalidade' ? 'hospitalidade-img' : ''}`} 
+                className="segment-modal-img"
               />
             </div>
 
