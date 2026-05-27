@@ -58,7 +58,7 @@ const ContactModal = ({ isOpen, onClose }) => {
     // URL do Google Apps Script
     const GOOGLE_SHEETS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwOPQ8CobtrmoDhrYoAyGfVIH1nmmUqOB4HfPy5ZVuGM3ZfJQsMnk6uBSXHzmo6NkwU/exec';
 
-    // Preparar dados para enviar para a planilha no formato suportado pelo Google Scripts
+    // Preparar dados para enviar para a planilha
     const submitData = new URLSearchParams();
     submitData.append('Nome completo', formData.nome);
     submitData.append('Telefone', formData.telefone);
@@ -71,13 +71,10 @@ const ContactModal = ({ isOpen, onClose }) => {
     try {
       // Enviar os dados apenas se a URL foi configurada
       if (GOOGLE_SHEETS_SCRIPT_URL !== 'COLE_AQUI_A_URL_DO_SEU_WEB_APP') {
-        await fetch(GOOGLE_SHEETS_SCRIPT_URL, {
-          method: 'POST',
-          body: submitData,
-          mode: 'no-cors', // Necessário para não bloquear requisições do navegador
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          }
+        // Usar método GET que não sofre bloqueios de CORS do navegador
+        await fetch(`${GOOGLE_SHEETS_SCRIPT_URL}?${submitData.toString()}`, {
+          method: 'GET',
+          mode: 'no-cors'
         });
       }
     } catch (error) {
