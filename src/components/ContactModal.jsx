@@ -51,16 +51,38 @@ const ContactModal = ({ isOpen, onClose }) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Build WhatsApp message with form data
-    const message = `*Nova solicitação de orçamento*\n\n` +
-      `*Nome:* ${formData.nome}\n` +
-      `*Telefone:* ${formData.telefone}\n` +
-      `*E-mail:* ${formData.email}\n` +
-      `*Empresa:* ${formData.empresa}\n` +
-      `*Cargo:* ${formData.cargo}\n` +
-      (formData.mensagem ? `*Mensagem:* ${formData.mensagem}\n` : '');
-
+    // Nova mensagem padrão para o WhatsApp
+    const message = "Olá, me informa mais sobre.";
     const encodedMessage = encodeURIComponent(message);
+
+    // URL do Google Apps Script
+    const GOOGLE_SHEETS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwOPQ8CobtrmoDhrYoAyGfVIH1nmmUqOB4HfPy5ZVuGM3ZfJQsMnk6uBSXHzmo6NkwU/exec';
+
+    // Preparar dados para enviar para a planilha no formato suportado pelo Google Scripts
+    const submitData = new URLSearchParams();
+    submitData.append('Nome completo', formData.nome);
+    submitData.append('Telefone', formData.telefone);
+    submitData.append('E-mail', formData.email);
+    submitData.append('Empresa', formData.empresa);
+    submitData.append('Cargo', formData.cargo);
+    submitData.append('Mensagem', formData.mensagem);
+    submitData.append('Data', new Date().toLocaleString('pt-BR'));
+
+    try {
+      // Enviar os dados apenas se a URL foi configurada
+      if (GOOGLE_SHEETS_SCRIPT_URL !== 'COLE_AQUI_A_URL_DO_SEU_WEB_APP') {
+        await fetch(GOOGLE_SHEETS_SCRIPT_URL, {
+          method: 'POST',
+          body: submitData,
+          mode: 'no-cors', // Necessário para não bloquear requisições do navegador
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          }
+        });
+      }
+    } catch (error) {
+      console.error('Erro ao salvar na planilha do Google:', error);
+    }
 
     // Short delay for UX
     await new Promise(resolve => setTimeout(resolve, 800));
