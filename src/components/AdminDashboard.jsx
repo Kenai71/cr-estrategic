@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './AdminDashboard.css';
-import { PiLockKeyThin, PiSignOutThin, PiTableThin, PiTrashThin, PiCheckCircleThin } from 'react-icons/pi';
+import { PiLockKeyThin, PiSignOutThin, PiTableThin, PiTrashThin, PiCheckCircleThin, PiClockThin, PiWarningCircleThin } from 'react-icons/pi';
 import { db } from '../firebase';
 import { collection, query, orderBy, onSnapshot, doc, updateDoc, deleteDoc } from 'firebase/firestore';
 
@@ -10,6 +10,7 @@ const AdminDashboard = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [deleteModal, setDeleteModal] = useState({ isOpen: false, contactId: null });
 
   // Verifica se já está logado na sessão atual
   useEffect(() => {
@@ -67,8 +68,7 @@ const AdminDashboard = () => {
     setData([]);
   };
 
-  const toggleStatus = async (id, currentStatus) => {
-    const newStatus = currentStatus === 'Respondido' ? 'Pendente' : 'Respondido';
+  const setStatus = async (id, newStatus) => {
     try {
       const docRef = doc(db, 'contatos', id);
       await updateDoc(docRef, { status: newStatus });
@@ -78,10 +78,19 @@ const AdminDashboard = () => {
     }
   };
 
-  const handleDelete = async (id) => {
-    if (window.confirm('Tem certeza que deseja apagar este contato permanentemente?')) {
+  const openDeleteModal = (id) => {
+    setDeleteModal({ isOpen: true, contactId: id });
+  };
+
+  const closeDeleteModal = () => {
+    setDeleteModal({ isOpen: false, contactId: null });
+  };
+
+  const confirmDelete = async () => {
+    if (deleteModal.contactId) {
       try {
-        await deleteDoc(doc(db, 'contatos', id));
+        await deleteDoc(doc(db, 'contatos', deleteModal.contactId));
+        closeDeleteModal();
       } catch (error) {
         console.error('Erro ao deletar contato:', error);
         alert('Erro ao apagar. Verifique as permissões do Firebase.');
@@ -150,21 +159,29 @@ const AdminDashboard = () => {
         ) : (
           <div className="cards-grid">
             {data.map((row) => (
-              <div className={`admin-card ${row.status === 'Respondido' ? 'card-respondido' : ''}`} key={row.id}>
+              <div className={`admin-card ${row.status === 'Respondido' ? 'card-respondido' : row.status === 'Pendente' ? 'card-pendente' : ''}`} key={row.id}>
                 <div className="card-header">
                   <div className="card-date">{formatData(row.dataCriacao)}</div>
                   <div className="card-actions">
                     <button 
+                      className={`status-btn ${row.status === 'Pendente' ? 'is-pending' : ''}`}
+                      onClick={() => setStatus(row.id, row.status === 'Pendente' ? '' : 'Pendente')}
+                      title={row.status === 'Pendente' ? "Remover marcação" : "Marcar como Pendente"}
+                    >
+                      <PiClockThin size={24} />
+                      <span className="tooltip">Pendente</span>
+                    </button>
+                    <button 
                       className={`status-btn ${row.status === 'Respondido' ? 'is-active' : ''}`}
-                      onClick={() => toggleStatus(row.id, row.status)}
-                      title={row.status === 'Respondido' ? "Marcar como Pendente" : "Marcar como Respondido"}
+                      onClick={() => setStatus(row.id, row.status === 'Respondido' ? '' : 'Respondido')}
+                      title={row.status === 'Respondido' ? "Remover marcação" : "Marcar como Respondido"}
                     >
                       <PiCheckCircleThin size={24} />
-                      <span className="tooltip">{row.status === 'Respondido' ? 'Respondido' : 'Pendente'}</span>
+                      <span className="tooltip">Respondido</span>
                     </button>
                     <button 
                       className="delete-btn"
-                      onClick={() => handleDelete(row.id)}
+                      onClick={() => openDeleteModal(row.id)}
                       title="Apagar"
                     >
                       <PiTrashThin size={22} />
@@ -202,6 +219,22 @@ const AdminDashboard = () => {
           </div>
         )}
       </main>
+
+      {deleteModal.isOpen && (
+        <div className="delete-modal-overlay">
+          <div className="delete-modal">
+            <div className="delete-modal-icon">
+              <PiWarningCircleThin size={48} />
+            </div>
+            <h3>Apagar Contato</h3>
+            <p>Tem certeza que deseja apagar esta solicitação? Esta ação não poderá ser desfeita.</p>
+            <div className="delete-modal-actions">
+              <button className="btn-cancel" onClick={closeDeleteModal}>Cancelar</button>
+              <button className="btn-confirm-delete" onClick={confirmDelete}>Sim, apagar</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

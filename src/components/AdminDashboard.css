@@ -349,6 +349,28 @@
   background-color: white;
 }
 
+.card-pendente {
+  border-color: #fde047;
+  background-color: #fefce8;
+}
+
+.card-pendente .card-header {
+  background-color: #fef9c3;
+  border-color: #fde047;
+}
+
+.card-pendente .card-date {
+  color: #854d0e;
+}
+
+.card-pendente .card-message {
+  border-color: #fde047;
+}
+
+.card-pendente .card-message p {
+  background-color: white;
+}
+
 @media (max-width: 768px) {
   .admin-header {
     padding: 16px 20px;
@@ -363,4 +385,94 @@
   .cards-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.status-btn.is-pending {
+  color: #eab308;
+}
+
+.status-btn.is-pending:hover {
+  background-color: #fef08a;
+  color: #ca8a04;
+}
+
+/* Modal Styles */
+.delete-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(15, 23, 42, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.delete-modal {
+  background-color: white;
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  text-align: center;
+}
+
+.delete-modal-icon {
+  color: #ef4444;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.delete-modal h3 {
+  margin: 0 0 12px;
+  font-size: 20px;
+  color: #0f172a;
+}
+
+.delete-modal p {
+  margin: 0 0 24px;
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.delete-modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn-cancel {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background-color: white;
+  color: #475569;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-cancel:hover {
+  background-color: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.btn-confirm-delete {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  background-color: #ef4444;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-confirm-delete:hover {
+  background-color: #dc2626;
 }
