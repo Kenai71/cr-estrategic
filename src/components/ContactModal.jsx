@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './ContactModal.css';
 import { PiXThin, PiPaperPlaneRightThin, PiCheckCircleThin } from 'react-icons/pi';
+import { db } from '../firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 const ContactModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
@@ -55,30 +57,22 @@ const ContactModal = ({ isOpen, onClose }) => {
     const message = "Olá, me informa mais sobre.";
     const encodedMessage = encodeURIComponent(message);
 
-    // URL do Google Apps Script
-    const GOOGLE_SHEETS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwOPQ8CobtrmoDhrYoAyGfVIH1nmmUqOB4HfPy5ZVuGM3ZfJQsMnk6uBSXHzmo6NkwU/exec';
-
-    // Preparar dados para enviar para a planilha
-    const submitData = new URLSearchParams();
-    submitData.append('Nome completo', formData.nome);
-    submitData.append('Telefone', formData.telefone);
-    submitData.append('E-mail', formData.email);
-    submitData.append('Empresa', formData.empresa);
-    submitData.append('Cargo', formData.cargo);
-    submitData.append('Mensagem', formData.mensagem);
-    submitData.append('Data', new Date().toLocaleString('pt-BR'));
+    // URL do Google Apps Script removida
 
     try {
-      // Enviar os dados apenas se a URL foi configurada
-      if (GOOGLE_SHEETS_SCRIPT_URL !== 'COLE_AQUI_A_URL_DO_SEU_WEB_APP') {
-        // Usar método GET que não sofre bloqueios de CORS do navegador
-        await fetch(`${GOOGLE_SHEETS_SCRIPT_URL}?${submitData.toString()}`, {
-          method: 'GET',
-          mode: 'no-cors'
-        });
-      }
+      // Salvar os dados diretamente no banco de dados Firebase (Firestore)
+      await addDoc(collection(db, 'contatos'), {
+        nome: formData.nome,
+        telefone: formData.telefone,
+        email: formData.email,
+        empresa: formData.empresa,
+        cargo: formData.cargo,
+        mensagem: formData.mensagem,
+        status: 'Pendente', // Novo campo para o dashboard
+        dataCriacao: serverTimestamp() // Usa a data e hora do servidor do Google
+      });
     } catch (error) {
-      console.error('Erro ao salvar na planilha do Google:', error);
+      console.error('Erro ao salvar no banco de dados Firebase:', error);
     }
 
     // Short delay for UX
